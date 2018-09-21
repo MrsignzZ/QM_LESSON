@@ -1,0 +1,357 @@
+
+2018/9/18 21:56:42
+【群主】秋梦 2018/9/18 21:56:42
+挑战性作业， 只需要做右上角音乐播放开关， 点击， 放音乐， 再点击停止播放。    音乐随便找url,   页面只要用poistion:fixed 写音符这一小块就可以。 
+【群主】秋梦 2018/9/18 21:56:52
+
+【群主】秋梦 2018/9/18 21:57:23
+期待大家提交作业给我。
+2018/9/18 22:11:20
+【群主】秋梦 2018/9/18 22:11:20
+下午的课  http://v.youku.com/v_show/id_XMzgyODkwMTA2MA==.html?spm=a2h3j.8428770.3416059.1
+2018/9/18 22:14:03
+【群主】秋梦 2018/9/18 22:14:03
+ 晚上的课  http://v.youku.com/v_show/id_XMzgyODg5OTY4OA==.html?spm=a2h3j.8428770.3416059.1
+2018/9/18 22:27:45
+【群主】秋梦 2018/9/18 22:27:45
+
+【群主】秋梦 2018/9/18 22:28:42
+@全体成员  上午来了的同学， 可以尝试把这个效果写下。  欢迎在群里讨论。   @江财 153 聂尧   期待你的实现
+2018/9/18 23:01:49
+【群主】秋梦 2018/9/18 23:01:49
+@江财 165 邹豪豪 在做课程总结， @东理～树莓～闵心茹 在花时间理知识点。 花时间才是王道，课程精彩，信息量大。自己多琢磨，后面也会重复讲到
+【群主】秋梦 2018/9/18 23:02:40
+明天开始会慢下来，细节讲解界面和css 
+9:28:26
+【JS高手】东理-姚思略 2018/9/19 9:28:26
+
+【JS高手】东理-姚思略 2018/9/19 9:28:47
+思路：
+	1、设计盒子界面，将其设置为原型，添加背景图片
+	使用属性border-radius、background-position、background-size
+	2、设置动画效果
+	使用属性animation、animation-play-state
+	3、使用audio上传音频
+	4、使用addEventListener为盒子添加点击事件，点击触发调用相应函数
+	5、使用querySelector获取对应音频id，判断音频状态、控制播放与否	
+	6、音频播放同时开启动画效果、音频停止播放结束动画效果（animation-play-state）
+【JS高手】东理-姚思略 2018/9/19 9:29:48
+做得很粗陋 希望大家提供更好的思路
+9:41:55
+【群主】秋梦 2018/9/19 9:41:55
+优秀， 给下代码呗
+【潜水】东理～树莓～闵心茹 2018/9/19 9:43:44
+一上午课没法敲代码
+9:46:13
+【群主】秋梦 2018/9/19 9:46:13
+@全体成员   今天下午  14:30   css 精讲   让所有同学听懂， 深刻， 并动手操作， 感受腾讯前端的刀功。 讲法会区别于昨天晚上， 这次主要细讲， 手把手， 练习前端切页面，   腾讯前端不可能是切图仔， 那是怎样的用刀侠客
+9:47:02
+【群主】秋梦 2018/9/19 9:47:02
+晚上 19:00  html5 综合案例， 跟昨天晚上讲法差不多， 会把昨天的东西消化再进阶一下。 
+【群主】秋梦 2018/9/19 9:48:26
+课程知识量大， 让大家开眼界， 敢动手，  后面我们会慢慢讲细的， 能让大家展开脑洞才是学习上上策。 学会为中， 简单学为下策。 
+9:56:06
+【群主】秋梦 2018/9/19 9:56:06
+@东理～树莓～闵心茹   带本小黄书上课看，  你不知道的JavaScript
+【班长】东理1621816廖影 2018/9/19 9:57:00
+我要去借书了/
+【潜水】东理～树莓～闵心茹 2018/9/19 9:57:20
+
+【潜水】东理～树莓～闵心茹 2018/9/19 9:57:23
+还没买呢
+【群主】秋梦 2018/9/19 9:57:36
+
+10:01:19
+【JS高手】东理-姚思略 2018/9/19 10:01:19
+<body>
+    <div id="player"></div>
+    <audio src="./audio/bvd kult Ed Sheeran - Shape Of You (bvd kult Remi.mp3" id="shapeofyou"></audio>
+<script>
+    window.onload = function () {
+        var player = document.getElementById("player");
+        player.addEventListener('click', playmusic);    
+        function playmusic(e) {
+            const audio = document.querySelector('#shapeofyou');
+            if (audio.paused) {
+                audio.play();
+                player.style.animationPlayState='running';
+            } else {
+                audio.pause();
+                player.style.animationPlayState='paused';
+            }
+
+        }
+    }
+</script>
+【JS高手】东理-姚思略 2018/9/19 10:02:27
+*{
+    margin: 0;
+    padding: 0;
+}
+#player{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    position: fixed;
+    top:40%;
+    left: 40%;
+    border-radius: 50px;
+    background-image: url(./images/88132-106.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: whileplay 5s linear infinite;
+    animation-play-state: paused;
+}
+
+@keyframes whileplay{
+    0%{transform: rotate(36deg)}
+    10%{transform: rotate(72deg)}
+    20%{transform: rotate(108deg)}
+    30%{transform: rotate(144deg)}
+    40%{transform: rotate(180deg)}
+    50%{transform: rotate(216deg)}
+    60%{transform: rotate(252deg)}
+    70%{transform: rotate(288deg)}
+    80%{transform: rotate(324deg)}
+    90%{transform: rotate(360deg)}
+    100%{transform: rotate(396deg)}
+}
+【JS高手】东理-姚思略 2018/9/19 10:02:46
+@秋梦 
+14:30:35
+【群主】秋梦 2018/9/19 14:30:35
+@全体成员  还有在路上的同学吗？
+14:31:37
+【吐槽】17届喻德斌 2018/9/19 14:31:37
+喻导，我还有五分钟
+【群主】秋梦 2018/9/19 14:32:40
+好的
+14:50:43
+【群主】秋梦 2018/9/19 14:50:43
+http://lol.qq.com/act/a20180815sevenyear/index.html
+
+14:53:47
+【群主】秋梦 2018/9/19 14:53:47
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LoL官网</title>
+</head>
+<body>
+  <a href="http://lol.qq.com/act/a20180815sevenyear/index.html" class="btn-top-bg" target="_blank">进入官网</a>
+  <a href="http://lol.qq.com/act/a20180815sevenyear/index.html" class="btn-top-bg" target="_blank">狂欢盛典</a>
+  <a href="http://lol.qq.com/act/a20180815sevenyear/index.html" class="btn-top-bg" target="_blank">下载游戏</a>
+</body>
+</html>
+14:56:42
+【群主】秋梦 2018/9/19 14:56:42
+http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png
+14:59:09
+【群主】秋梦 2018/9/19 14:59:09
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-top-bg {
+  width: 235px;
+  height: 84px;
+  background: url('http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png');
+  background-size:1335px 1194px;
+  color: #bea468;
+  text-align: center;
+}
+15:07:32
+【群主】秋梦 2018/9/19 15:07:32
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-top-bg {
+  width: 235px;
+  height: 84px;
+  display:inline-block;
+  background: url('http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png');
+  background-size:1335px 1194px;
+  color: #bea468;
+  text-align: center;
+}
+15:45:08
+【群主】秋梦 2018/9/19 15:45:08
+/* css reset  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+/*
+ * author ysw 
+ * date 9-19
+ * 中秋节首页活动上新
+ */
+.btn-top-bg {
+  width: 235px;
+  height: 84px;
+  display:inline-block;
+  background: url('http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png');
+  background-size:1335px 1194px;
+  color: #bea468;
+  text-align: center;
+  line-height: 84px;
+  background-position: -337px -615px;
+}
+
+.btn-top-bg:hover {
+  background-position: -577px -615px;
+  color: #472c0f;
+}
+
+/* css reset  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.g-wrap{
+    width: 100%;
+    height: 3366px;
+    overflow: hidden;
+    position: relative;
+    font-size: 17px;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+
+/*
+ * author ysw 
+ * date 9-19
+ * 中秋节首页活动上新
+ */
+
+ /* 背景样式 */
+ .bg{
+    width: 100%;
+    position: absolute;
+ }
+
+ .bg_1{
+     width: 100%;
+     height: 482px;
+     overflow: hidden;
+     background: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/bg_01.jpg) center top no-repeat;
+ }
+
+ .bg_2{
+     width: 100%;
+     height: 1853px;
+     background: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/bg_02.jpg) center top no-repeat;
+ }
+
+ .bg_3{
+     width: 100%;
+     height: 1122px;
+     background: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/bg_03.jpg) center top no-repeat;
+ }
+
+
+ .video-bg{
+     position: absolute;
+     left: 50%;
+     margin-left: -960px;
+ }
+
+ .cover-img{
+     position: absolute;
+     z-index: 1;
+     top: 369px;
+     left: 50%;
+     margin-left: -960px;
+ }
+ .main{
+     width: 1200px;
+     /* 网页居中 */
+     margin: 0 auto;
+     position: relative;
+     z-index: 2;
+     background-color: red;
+ }
+
+.btn-top-bg {
+  width: 235px;
+  height: 84px;
+  display:inline-block;
+  background: url('http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png');
+  background-size:1335px 1194px;
+  color: #bea468;
+  text-align: center;
+  line-height: 84px;
+  background-position: -337px -615px;
+}
+
+.btn-top-bg:hover {
+  background-position: -577px -615px;
+  color: #472c0f;
+}
+
+.icon-arrow {
+  width: 26px;
+  height: 25px;
+  background-position: -1281px -706px;
+  background-image: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png);
+  background-size: 1335px 1194px;
+  margin-left: 10px;
+  display:none;
+  vertical-align: -7px;
+}
+
+.btn-top-bg:hover .icon-arrow {
+  display: inline-block;
+  animation: arr-ani 2s infinite linear;
+}
+
+@keyframes arr-ani {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(5px);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(5px);
+  }
+  40% {
+    transform: translateX(0);
+  }
+  55% {
+    transform: translateX(0);
+  }
+  65% {
+    transform: translateX(8px);
+  }
+  95% {
+    transform: translateX(8px);
+  }
+  0% {
+    transform: translateX(8px);
+  }
+}
