@@ -33,7 +33,7 @@
   <svg class="progress-ring" height="120" width="120">
     <circle class="progress-ring__circle" r="52" cx="60" cy="60" stroke-width="4" stroke="#FF425E" fill="transparent"/>
   </svg>
-  <input type="number" value="35" step="5" min="0" max="100" />
+  <input type="number" value="35" step="1" min="0" max="100" />
   <script>
     var circle = document.querySelector('circle');
     // console.log(Object.prototype.toString.call(circle));
@@ -50,9 +50,20 @@
 
     const input = document.querySelector('input');
     setProgress(input.value);
-    input.addEventListener('change',function(){
+    setInterval(function(){
+      var v = parseInt(input.value);
+      v++;
+      if(v > 100){
+        v = 0;
+      }
+      input.value = v;
+      setProgress(input.value);
+    },100);
+    /* input.addEventListener('change',function(){
       setProgress(this.value);
-    })
+    }) */
+
+
   </script>
 </body>
 </html>
