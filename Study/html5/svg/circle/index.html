@@ -53,10 +53,10 @@
     setInterval(function(){
       var v = parseInt(input.value);
       v++;
+      input.value = v;
       if(v > 100){
         v = 0;
       }
-      input.value = v;
       setProgress(input.value);
     },100);
     /* input.addEventListener('change',function(){
