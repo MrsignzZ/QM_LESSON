@@ -1,0 +1,9 @@
+<view class="calendar">
+  <calendar weeks-type="full-zh" cell-size="30" next="{{fasle}}" prev="{{false}}" show-more-days="{{true}}"
+  calendar-style="deo6-calendar" header-style="calendar-header" board-style="calendar-board"/>
+</view>
+<view class="icon">
+  <icon type="edit" color="red"/>
+  <icon type="home" />
+  <icon type="add" />
+</view>
