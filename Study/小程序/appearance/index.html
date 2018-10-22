@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>appearance</title>
+</head>
+<style>
+  select {
+    -webkit-appearance: button;
+  }
+  input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border: 1px solid;
+  }
+  .btn {
+    position: relative;
+    width: 100px;
+    display: block;
+    color: white;
+    background-color: green;
+    font-size: 18px;
+    line-height: 2.6666;
+    border-radius: 15px;
+    text-align: center;
+    /* 1px => .5px?  iphone */
+    text-decoration: none;
+  }
+  /* transfrom:scale解决0.5px边框 */
+  .btn:after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    transform: scale(.5,.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+  }
+  .btn:active {
+    background-color: rgb(0,255,0, .6);
+  }
+
+</style>
+<body>
+  <a href="#" class="btn">primary</a>
+  <!-- <input type="text">
+  <select name="" id="">
+    <option value="0">请选择</option>
+    <option value="1">男</option>
+    <option value="2">女</option>
+  </select> -->
+</body>
+</html>
