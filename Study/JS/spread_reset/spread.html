@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="people">
+    <p>Wes</p>
+    <p>Kait</p>
+    <p>Randy</p>
+  </div>
+  <script>
+    // 类数组，没有数组上的所有方法
+    // Array.from() 转化为真正的数组
+    const people = Array.from(document.querySelectorAll('.people p'));
+    console.log(people);
+
+    const names = people.map((person) => person.textContent);
+    console.log(names);
+
+    const deepDish = {
+      pizzaName: 'Deep Dish',
+      size: 'Medium',
+      ingredients: ['Marinara','Italian Sausage','Dough','Cheese']
+    };
+
+    // ...运算符，用于数组解构
+    const shoppingList = ['Milk','Flour',...deepDish.ingredients];
+    console.log(shoppingList);
+    const team = ['孙大勇','Heart','Letme','MLXG','xiaohu','UZI','Ming'];
+
+    //解构
+    const [captain, assistant, ...players] = team;
+    /*  const captain = team[0];
+    const assistant = team[1];
+    const players = team.splice(2);
+    console.log(players); */
+
+
+  </script>
+</body>
+</html>
