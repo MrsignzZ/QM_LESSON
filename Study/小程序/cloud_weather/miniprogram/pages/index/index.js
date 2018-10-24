@@ -1,5 +1,5 @@
 wx.cloud.init({
-  env: 'codingdream-74b4e5'
+  env: 'mrsign-20'
 })
 
 const db = wx.cloud.database()
