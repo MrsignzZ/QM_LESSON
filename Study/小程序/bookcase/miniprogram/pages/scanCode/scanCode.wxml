@@ -1,0 +1,7 @@
+<!--miniprogram/pages/scanCode/scanCode.wxml-->
+<!-- vant来自与有赞, row layout组件 -->
+<van-row>
+  <van-col span="8" offset="8"><!-- 网格系统为24,span=8、offset=8用于水平居中 -->
+    <van-button type="primary" bind:click="scanCode">扫码加书</van-button>
+  </van-col>
+</van-row>
