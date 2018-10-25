@@ -1,0 +1,21 @@
+{
+  "name": "npm_hello_script",
+  "version": "1.0.0",
+  "description": "1. 工作流<br>\r   **gulp**\r     >task\r     .src 开发目录\r     .pipe 传递数据\r     .dest() 生产目录",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "test": "npm-run-all --parallel lint:*"
+  },
+  "keywords": [],
+  "author": "MrsignzZ <1440806960@qq.com> (http://github.com/MrsignzZ)",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.3"
+  }
+}
