@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // promise 在未来完成的东西 容器=>里面放置着耗时的任务
+    // 任务完成后 成功=>resolve 失败=>reject
+    const p = new Promise((resolve,reject) => {
+       // ajax,定时器，数据库操作 上传下载服务 10s
+      setTimeout(() => {
+        reject('失败')
+      }, 1000)
+    })
+    // then会立即将promise的
+    p.then(data => {
+      console.log(data)
+      console.log('bbb')
+    })
+    .catch(err => {
+      console.error(err);
+
+    })
+  </script>
+</body>
+</html>
