@@ -11,30 +11,25 @@
     </swiper>
   </view>
   <view class="servicePolicy">
-    <ul class="servicePolicy-grow">
-      <li class="servicePolicy-grow-item">
-        <a href="#">
-          <i class="icon"
-          style="background-image:url(http://yanxuan.nosdn.127.net/cae45612b8aae577d8bd73338e2fc02c.png)"></i>
-          <span class="text">网易自营品牌</span>
-        </a>
-      </li>
-      <li class="servicePolicy-grow-item">
-        <a href="#">
-          <span class="text">30天无忧退货</span>
-        </a>
-      </li>
-      <li class="servicePolicy-grow-item">
-        <a href="#">
-          <span class="text">48小时快速退款</span>
-        </a>
-      </li>
-    </ul>
+    <view class="servicePolicy-grow">
+      <navigator>
+        <!-- <i class="icon-dui"></i> -->
+        <image src="../../icons/true.png" class="icon"/>
+        <text class="text" wx:for="{{servicePolicy}}" wx:for-item="item">{{item.text}}</text>
+      </navigator>
+    </view>
   </view>
   <view class="welfare">
-    <a href="#">
+    <navigator class="welfare_img">
       <image class="img"
       src="https://yanxuan.nosdn.127.net/964d055b8971d986f4f7878b6cd29802.jpg" />
-    </a>
+    </navigator>
+  </view>
+  <view class="content_h1">
+    <view class="content-title">
+      <view class="content_h1_title-txt txt1">免邮拼团</view>
+      <view class="content_h1_title-txt txt2">团长返现</view>
+      <navigator class="content_h1_title-more">更多></navigator>
+    </view>
   </view>
 </view>

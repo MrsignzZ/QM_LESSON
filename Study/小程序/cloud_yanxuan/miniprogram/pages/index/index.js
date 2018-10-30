@@ -2,7 +2,18 @@ wx.cloud.init({});
 const db = wx.cloud.database();
 Page({
   data: {
-    ads: []
+    ads: [],
+    servicePolicy: [
+      {
+        text: "网易自营品牌"
+      },
+      {
+        text: "30天无忧退货"
+      },
+      {
+        text: "48小时快速退款"
+      }
+    ]
   },
   onLoad: function() {
     db.collection('ads').get({
