@@ -1,8 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-  <van-search placeholder="搜索商品，共17176款好物"></van-search>
+  <navigator url="" class="search">
+    <van-search disabled="true" placeholder="搜索商品，共17176款好物" style="width:90%;"></van-search>
+  </navigator>
   <view class="adInfos">
-    <swiper wx:if="{{ads.length}}" autoplay="true" indicator-dots="true" circular="true">
+    <swiper wx:if="{{ads.length}}" autoplay="true" indicator-dots="true" circular="true"  previous-margin="10px"  next-margin="10px">
       <block wx:for="{{ads}}" wx:for-item="ad" wx:key="ad._id">
         <swiper-item>
           <image src="{{ad.pic}}" data-id="{{ad._id}}" mode="aspectFill" />
@@ -12,11 +14,13 @@
   </view>
   <view class="servicePolicy">
     <view class="servicePolicy-grow">
-      <navigator>
-        <!-- <i class="icon-dui"></i> -->
-        <image src="../../icons/true.png" class="icon"/>
-        <text class="text" wx:for="{{servicePolicy}}" wx:for-item="item">{{item.text}}</text>
-      </navigator>
+      <view class="servicePolicy-grow_items"></view>
+        <image src="../../icons/true.png" class="icon" />
+        <navigator>
+          <text class="text"></text>
+        </navigator>
+      <view class="servicePolicy-grow_items"></view>
+      <view class="servicePolicy-grow_items"></view>
     </view>
   </view>
   <view class="welfare">
@@ -30,6 +34,16 @@
       <view class="content_h1_title-txt txt1">免邮拼团</view>
       <view class="content_h1_title-txt txt2">团长返现</view>
       <navigator class="content_h1_title-more">更多></navigator>
+    </view>
+    <view class="collage">
+      <swiper display-multiple-items="3" autoplay="true" >
+        <block wx:for="{{collageInfo}}" wx:for-item="item" wx:key="item._id">
+          <swiper-item>
+            <image src="{{item.pic}}" data-id="{{item._id}}" mode="aspectFill" />
+            <view class="desc">{{item.desc}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
     </view>
   </view>
 </view>

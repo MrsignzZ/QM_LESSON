@@ -1,15 +1,31 @@
+.search {
+  width: 100%;
+}
+.van-search .field-index--van-field {
+  background: #fff;
+  border:solid 0.5px;
+  border-radius: 28rpx;
+  width: 100%;
+}
 .adInfos{
   width:100%;
   height: 400rpx;
   position: relative;
 }
 .adInfos swiper{
+  width: 100%;
   height: 100%;
+  margin: 5rpx auto;
+}
+.adInfos swiper swiper-item {
+  padding: 0 5px;
+  box-sizing: border-box;
 }
 .adInfos swiper image{
   position: absolute;
-  width:100%;
+  width: 100%;
   height: 100%;
+  border-radius: 15px;
 }
 
 .servicePolicy {
@@ -50,16 +66,13 @@
 .content_h1 {
   width: 100%;
   height: 100rpx;
-  position: relative;
 }
 .content-title {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
   display: inline-block;
   width: 100%;
-  height: 50rpx;
+  height: 80rpx;
   padding:0 40rpx;
   box-sizing: border-box;
 }
@@ -84,6 +97,27 @@
 
 .content_h1_title-more {
   float: right;
+}
+
+.collage{
+  width:100%;
+  height: 200rpx;
+  text-align: center;
+  background-color: #F8F8F4;
+}
+.collage swiper{
+  height: 100%;
+}
+.collage swiper image{
+  /* position: absolute; */
+  width: 125rpx;
+  height: 150rpx;
+  /* height: 200rpx; */
+  border-radius: 15px;
+}
+.desc {
+  font-size: 20rpx;
+  color: #B63034;
 }
 
 /* icon */
