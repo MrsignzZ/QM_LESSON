@@ -5,7 +5,7 @@ Page({
   data: {
     collageInfo: [],
     ads: [],
-      
+
   },
   onLoad: function() {
     AdsInfo.collection('ads').get({

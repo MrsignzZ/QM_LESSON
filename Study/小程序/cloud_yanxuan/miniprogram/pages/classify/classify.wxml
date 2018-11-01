@@ -1,2 +1,25 @@
 <!--miniprogram/pages/classify/classiify.wxml-->
-<text>miniprogram/pages/classify/classiify.wxml</text>
+<view class="main">
+  <view class="category-left">
+    <view class="things-list {{curIndex === index ?'on': ''}}" wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchTab">
+      {{item.name}}
+    </view>
+  </view>
+  <scroll-view class="category-right" scroll-y="{{isScroll}}" scroll-with-animation="true" scroll-into-view="{{toView}}">
+    <block>
+      <view class="things-box" id="{{item.id}}">
+        <view class="things-banner" >
+          <image src="http://yanxuan.nosdn.127.net/5925df97900a841928fa09e4a64b9db0.jpg?imageView&amp;thumbnail=0x196&amp;quality=75" mode="aspectFill" />
+        </view>
+        <view class="product">
+          <view class="product-list" wx:for="{{proInfo}}" wx:key="item._id" wx:for-item="item">
+            <image src="{{item.pic}}" data-id="{{item._id}}" mode="aspectFill"/>
+            <view class="classname">
+              <text>{{item.desc}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

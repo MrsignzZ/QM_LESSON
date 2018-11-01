@@ -1,66 +1,75 @@
-// miniprogram/pages/classify/classiify.js
+wx.cloud.init({});
+const ProInfo = wx.cloud.database();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    proInfo: [],
+    category: [
+      {
+        name: '11.11专区',
+        id: 'shuang11'
+      },
+      {
+        name: '秋季专区',
+        id: 'qiujizhuanqu'
+      },
+      {
+        name: '爆品专区',
+        id: 'baopinzhaunqu'
+      },
+      {
+        name: '居家',
+        id: 'jvjia'
+      },
+      {
+        name: '鞋包配饰',
+        id: 'xiebaopeishi'
+      },
+      {
+        name: '服装',
+        id: 'fuzhuang'
+      },
+      {
+        name: '电器',
+        id: 'dianqi'
+      },
+      {
+        name: '洗护',
+        id: 'xihu'
+      },
+      {
+        name: '饮食',
+        id: 'yinshi'
+      },
+      {
+        name: '餐厨',
+        id: 'canchu'
+      },
+      {
+        name: '婴童',
+        id: 'yingtong'
+      },
+      {
+        name: '文体',
+        id: 'wenti'
+      }
+    ],
+    curIndex: 0,
+    isScroll: false,
+    toView: 'shuang11' //srcollview toView功能，自动跳到某个子页面去
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad: function() {
+    ProInfo.collection('proInfo').get({
+      success: res => {
+        this.setData({
+          proInfo: res.data
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  switchTab(e) {
+    this.setData({
+      curIndex: e.target.dataset.index,
+      toView: e.target.dataset.id
+    });
   }
-})
+});
