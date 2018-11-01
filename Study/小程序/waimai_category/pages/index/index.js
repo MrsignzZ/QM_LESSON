@@ -29,27 +29,46 @@ Page({
     curIndex: 0,
     detail: [],
     isScroll: false,
-    toView: 'guowei' //srcollview toView功能，自动跳到某个子页面去
+    pageHeight: 0,
+    toView: 'guowei' // scrollview toView功能 自动跳到某个子页面去
   },
   onReady() {
+
     wx.request({
       url: 'http://www.gdfengshuo.com/api/wx/cate-detail.txt',
       success: (res) => {
-        console.log(res);
+        // console.log('onReady res');
+        // console.log(res);
         this.setData({
           detail: res.data,
-          isScroll: true
+          isScroll: true,
         })
       }
-    }
-    )
+    })
+
+    //onReay 取屏幕高度
+    wx.getSystemInfo({
+      success: (res) => {
+        let pageHeight = res.windowHeight
+        console.log(pageHeight)
+        this.setData({
+          pageHeight
+        })
+      }
+    })
+
   },
   switchTab(e) {
     this.setData({
       curIndex: e.target.dataset.index,
-      toView: e.target.dataset.id
+      toView: e.target.dataset.id,
+
     })
   },
-  
-
+  switchList(e) {
+    this.setData({
+      curIndex: Math.floor(e.detail.scrollTop / this.data.pageHeight)
+    })
+    console.log("page: " + (this.data.curIndex + 1))
+  }
 })
