@@ -1,2 +1,23 @@
 <!--miniprogram/pages/my/my.wxml-->
-<text>miniprogram/pages/my/my.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
+    <view class="id">
+      <view class="nickname">未登录</view>
+      <view class="nicknameType">点击登录账号</view>
+    </view>
+  </view>
+  <view class="menu">
+    <view class="list" wx:for="{{list}}" wx:for-item="item">
+      <view class="list-item">
+        <image src="{{item.pic}}" />
+        <view class="listName">
+          <text>{{item.txt}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="idChange">
+    <button >切换账号</button>
+  </view>
+</view>

@@ -1,1 +1,30 @@
 /* miniprogram/pages/cart/cart.wxss */
+.container {
+  width: 100%;
+}
+
+.cart_img {
+  margin-top: 350rpx;
+}
+
+.img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 248rpx;
+  height: 248rpx;
+}
+
+.text {
+  line-height: 24rpx;
+  font-size: 24rpx;
+  margin-bottom: 50rpx;
+  color: #999;
+}
+
+.btn-login {
+  width: 450rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #b4282d;
+  border-radius: 5rpx;
+}

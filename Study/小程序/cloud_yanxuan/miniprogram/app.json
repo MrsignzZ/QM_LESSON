@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/my/my",
     "pages/cart/cart",
     "pages/classify/classify",
-    "pages/index/index",
-    "pages/my/my"
+    "pages/index/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

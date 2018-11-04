@@ -1,1 +1,108 @@
 /* miniprogram/pages/my/my.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.userinfo {
+  /* margin-top: 40rpx; */
+  height: 270rpx;
+  width: 100%;
+  background: #1E1E1E;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
+}
+
+.userinfo-avatar:after {
+  border: none;
+}
+
+.id {
+  margin-left: 20rpx;
+  height: 110rpx;
+}
+
+.nickname {
+  /* width: 100%; */
+  display: inline-block;
+  color: #fff;
+  font-weight: 100;
+  letter-spacing: 5rpx;
+}
+
+.nicknameType {
+  margin-top: 20rpx;
+  color: #A4926F;
+  font-size: 28rpx;
+  letter-spacing: 5rpx;
+}
+
+.menu {
+  width: 100%;
+  height: 726rpx;
+  background-color: #fff;
+}
+
+.list {
+  float: left;
+  width: 33.05%;
+  height: 180rpx;
+  border-right: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.list-item {
+  display: block;
+  height: 205rpx;
+  padding-top: 38rpx;
+  text-align: center;
+}
+
+.list-item image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.listName text {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 200;
+  line-height: 26rpx;
+  color: #333;
+}
+
+.idChange {
+  width: 100%;
+  height: 108rpx;
+  background-color: #f4f4f4;
+}
+
+.idChange button {
+  height: 90rpx;
+  background-color: #fff;
+  margin-top: 18rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+
+
+
+
+
