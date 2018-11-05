@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view>
+  <canvas id="effect" canvas-id="effect"></canvas>
+</view>
