@@ -1,0 +1,52 @@
+/* miniprogram/pages/login/login.wxss */
+.container {
+  width: 100%;
+}
+
+.logoWrap {
+  text-align: center;
+  padding-top: 268rpx;
+  padding-bottom: 84rpx;
+}
+
+image {
+  width: 268rpx;
+  height: 90rpx;
+}
+
+.btnWrap {
+  width: 750rpx;
+  height: 292rpx;
+}
+
+.btn {
+  width: 670rpx;
+  height: 94rpx;
+  margin-bottom: 35rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  letter-spacing: 5rpx;
+  line-height: 94rpx;
+  color: #B4282D;
+  border: solid 1px #B4282D;
+}
+
+.wxLogin {
+  color: #fff;
+  background-color: #B4282D;
+  font-weight: 100;
+}
+
+.register {
+  width: 100%;
+  text-align: center;
+
+}
+
+.register text {
+  font-size: 28rpx;
+  color: #333;
+}
+

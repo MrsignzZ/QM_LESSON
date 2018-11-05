@@ -4,7 +4,7 @@
      <image class="img" src="//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-a8fe3f12e5.png" mode="aspcetFill" />
   </view>
   <text class="text">添加点什么吧</text>
-  <navigator >
+  <navigator  url="../login/login">
     <button class="btn-login">登录</button>
   </navigator>
 </view>
