@@ -1,66 +1,57 @@
-// miniprogram/pages/login/login.js
+const app = getApp();
+const globalData = app.globalData;
+// 放在根上 globalData
+// 小程序内没有cookie
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    auth: -1,
+    nickname: '',
+    avatarUrl: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    console.log(options);
+    
+    // 用户的授权有很多方面 scope.userInfo
+    this.getScope(this.getUserInfo, () => {
+      this.setData({
+        auth: 0
+      });
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 高阶函数， success 参数也是一个函数，
+  getScope(success, fail, name = 'scope.userInfo') {
+    // 函数体
+    wx.getSetting({
+      success: res => {
+        // console.log(res);
+        if (res.authSetting[name]) {
+          success();
+        } else {
+          fail();
+        }
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  getUserInfo() {
+    if (!globalData.nickname || !globalData.avatarUrl) {
+      // 1. wx.getUserInfo(nickname, avatar) 函数 success
+      // 2. 放到全局 函数
+      this._getUserInfo(res => {
+        this.setData({
+          nickname: res.nickName,
+          avatarUrl: res.avatarUrl
+        });
+        globalData.nickname = res.nickName;
+        globalData.avatarUrl = res.avatarUrl;
+      });
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  _getUserInfo(cb = () => {}) {
+    wx.getUserInfo({
+      success: res => {
+        cb(res.userInfo);
+      }
+    });
   }
-})
+});

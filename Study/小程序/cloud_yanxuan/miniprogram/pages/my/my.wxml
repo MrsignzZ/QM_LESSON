@@ -1,9 +1,9 @@
 <!--miniprogram/pages/my/my.wxml-->
 <view class="container">
-  <navigator class="userinfo" url="../login/login">
-    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
+  <navigator class="userinfo" url="../login/login?nickname={{nickname}}?avatarUrl={{avatarUrl}}}">
+    <button class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
     <view class="id">
-      <view class="nickname">未登录</view>
+      <view class="nickname">{{nickname}}</view>
       <view class="nicknameType">点击登录账号</view>
     </view>
   </navigator>

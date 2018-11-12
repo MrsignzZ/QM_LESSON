@@ -4,7 +4,7 @@
     <image src="//yanxuan.nosdn.127.net/bd139d2c42205f749cd4ab78fa3d6c60.png"  mode="aspectFill"/>
   </view>
   <view class="btnWrap">
-    <button class="btn wxLogin">微信登录</button>
+    <button class="btn wxLogin" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
     <button class="btn mailLogin">邮箱账号登录</button>
     <button class="btn phoneLogin">手机号登录</button>
     <view class="register">
