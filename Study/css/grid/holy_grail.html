@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>圣杯</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-width: 600px;
+}
+.header, .footer {
+  text-align: center;
+  background: #bbbbbb;
+  width: 100%;
+}
+.bd {
+  overflow: hidden;
+  padding: 0 200px 0 200px;
+}
+/* 为什么要放在第一列？
+   main里面的内容放在第一个，它会显示的最快
+*/
+.main {
+  /* 块级元素 */
+  float: left;
+  width: 100%;
+  height: 200px;
+  background-color: #dddddd;
+}
+.left {
+  float: left;
+  margin-left: -100%;
+  left: -200px;
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background-color: #da4242;
+}
+.right {
+  float: left;
+  margin-left: -200px;
+  left: 200px;
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background-color: #da4242;
+}
+  </style>
+</head>
+<body>
+  <div class="header">Header</div>
+  <div class="bd">
+    <div class="main text">Main</div>
+    <div class="left text">Nav</div>
+    <div class="right text">Aside</div>
+  </div>
+  <div class="footer">Footer</div>
+</body>
+</html>
