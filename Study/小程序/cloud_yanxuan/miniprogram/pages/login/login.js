@@ -6,12 +6,11 @@ const globalData = app.globalData;
 Page({
   data: {
     auth: -1,
-    nickname: '',
-    avatarUrl: ''
+    userInfo: []
   },
   onLoad(options) {
     console.log(options);
-    
+
     // 用户的授权有很多方面 scope.userInfo
     this.getScope(this.getUserInfo, () => {
       this.setData({
@@ -38,14 +37,21 @@ Page({
       // 1. wx.getUserInfo(nickname, avatar) 函数 success
       // 2. 放到全局 函数
       this._getUserInfo(res => {
+        let nickname = res.nickName;
+        let avatarUrl = res.avatarUrl;
+        let userInfo = [nickname, avatarUrl];
+        // console.log(res);
         this.setData({
-          nickname: res.nickName,
-          avatarUrl: res.avatarUrl
+          userInfo
         });
-        globalData.nickname = res.nickName;
-        globalData.avatarUrl = res.avatarUrl;
       });
     }
+
+    setTimeout(() => {
+      wx.switchTab({
+        url: '../my/my'
+      });
+    }, 1000);
   },
   _getUserInfo(cb = () => {}) {
     wx.getUserInfo({

@@ -1,0 +1,12 @@
+{
+  "name": "plane",
+  "version": "0.1.0",
+  "description": "1. **命名空间**<br>\r egret 顶级空间<br>\r     >.event.ADDED_TO_STAGE 划分引擎的系统 协作开发",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "MrsignzZ <1440806960@qq.com> (http://github.com/MrsignzZ)",
+  "license": "MIT"
+}
