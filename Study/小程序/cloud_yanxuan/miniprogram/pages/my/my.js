@@ -1,4 +1,6 @@
 // miniprogram/pages/my/my.js
+const db = wx.cloud.database();
+
 Page({
   /**
    * 页面的初始数据
@@ -53,9 +55,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    console.log(options);
-  },
+  onLoad: function() {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -65,7 +65,21 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function() {
+    let _this = this;
+    db.collection('users').get({
+      success: function(res) {
+        _this.setData({
+          nickname: res.data[0].nickname,
+          avatarUrl: res.data[0].avatarUrl
+        });
+        wx.showToast({
+          title: '登录成功'
+        });
+      },
+      fail: function() {}
+    });
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

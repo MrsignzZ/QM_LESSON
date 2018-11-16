@@ -1,5 +1,6 @@
 const app = getApp();
 const globalData = app.globalData;
+const db = wx.cloud.database();
 // 放在根上 globalData
 // 小程序内没有cookie
 
@@ -46,12 +47,6 @@ Page({
         });
       });
     }
-
-    setTimeout(() => {
-      wx.switchTab({
-        url: '../my/my'
-      });
-    }, 1000);
   },
   _getUserInfo(cb = () => {}) {
     wx.getUserInfo({
@@ -59,5 +54,23 @@ Page({
         cb(res.userInfo);
       }
     });
+  },
+  toMy() {
+    wx.showLoading({
+      title: '正在登录'
+    });
+    let [nickname, avatarUrl] = this.data.userInfo;
+    db.collection('users').add({
+      data: {
+        nickname,
+        avatarUrl
+      }
+    });
+    setTimeout(() => {
+      wx.switchTab({
+        url: `../my/my`
+      });
+      wx.hideLoading();
+    }, 1000);
   }
 });
