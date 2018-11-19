@@ -38,7 +38,7 @@
     <view class="collage">
       <swiper display-multiple-items="3" autoplay="true" >
         <block wx:for="{{collageInfo}}" wx:for-item="item" wx:key="item._id">
-          <swiper-item>
+          <swiper-item bindtap="toCartItem">
             <image src="{{item.pic}}" data-id="{{item._id}}" mode="aspectFit" />
             <view class="desc">{{item.desc}}</view>
           </swiper-item>

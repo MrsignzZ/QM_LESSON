@@ -23,5 +23,11 @@ Page({
       })
     }
   })
+  },
+  toCartItem: (e) => {
+    wx.navigateTo({
+      url: "../items/item_test1"
+    })
   }
-});
+}
+);

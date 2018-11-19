@@ -1,0 +1,12 @@
+<!--miniprogram/pages/items/item_test1.wxml-->
+<view class="container">
+  <view class="adInfo">
+    <swiper>
+      <block>
+        <swiper-item>
+          <image src="" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
