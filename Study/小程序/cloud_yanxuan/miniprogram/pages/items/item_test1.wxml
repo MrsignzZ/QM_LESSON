@@ -1,12 +1,5 @@
 <!--miniprogram/pages/items/item_test1.wxml-->
+<import src="/components/item-swiper/item-swiper.wxml" />
 <view class="container">
-  <view class="adInfo">
-    <swiper>
-      <block>
-        <swiper-item>
-          <image src="" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+  <template is="swiperTemplate" data="{{ads}}"/>
 </view>

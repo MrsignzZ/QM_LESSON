@@ -1,1 +1,5 @@
 /* miniprogram/pages/items/item_test1.wxss */
+@import "../../components/item-swiper/item-swiper.wxss";
+.container {
+  height: 800rpx;
+}

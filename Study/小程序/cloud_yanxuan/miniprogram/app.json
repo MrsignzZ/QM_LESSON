@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/items/item_test1",
     "pages/index/index",
     "pages/my/my",
     "pages/cart/cart",
     "pages/classify/classify",
-    "pages/login/login",
-    "pages/items/item_test1"
+    "pages/login/login"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
