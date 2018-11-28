@@ -1,10 +1,10 @@
 <!--components/item-swiper/item-swiper.wxml-->
 <template name="swiperTemplate">
   <view class="adInfos">
-    <swiper wx:if="{{ads.length}}" autoplay="true" indicator-dots="true" circular="true" previous-margin="10px" next-margin="10px">
-      <block wx:for="{{ads}}" wx:for-item="ad" wx:key="ad._id">
+    <swiper wx:if="{{itemInfo.image.length}}" autoplay="true" indicator-dots="true" >
+      <block wx:for="{{itemInfo.image}}" wx:for-item="ad" wx:key="ad._id">
         <swiper-item>
-          <image src="{{ad.pic}}" data-id="{{ad._id}}" mode="aspectFill" />
+          <image src="{{ad}}" data-id="{{ad._id}}" mode="aspectFill" />
         </swiper-item>
       </block>
     </swiper>

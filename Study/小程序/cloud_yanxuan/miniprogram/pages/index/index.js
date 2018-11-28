@@ -10,6 +10,8 @@ Page({
   onLoad: function() {
     AdsInfo.collection('ads').get({
       success: res => {
+        console.log(res);
+        
         this.setData({
           ads: res.data
         });

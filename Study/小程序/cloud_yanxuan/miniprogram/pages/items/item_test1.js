@@ -1,22 +1,24 @@
 // miniprogram/pages/items/item_test1.js
 wx.cloud.init({});
-const AdsInfo = wx.cloud.database();
+const itemInfo = wx.cloud.database();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    ads: []
+    itemInfo: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    AdsInfo.collection('ads').get({
+    itemInfo.collection('itemInfo').get({
       success: res => {
+        console.log(res);
+
         this.setData({
-          ads: res.data
+          itemInfo: res.data
         });
       }
     });

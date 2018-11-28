@@ -1,5 +1,5 @@
 <!--miniprogram/pages/items/item_test1.wxml-->
 <import src="/components/item-swiper/item-swiper.wxml" />
 <view class="container">
-  <template is="swiperTemplate" data="{{ads}}"/>
+  <template is="swiperTemplate" data="{{itemInfo}}"/>
 </view>
