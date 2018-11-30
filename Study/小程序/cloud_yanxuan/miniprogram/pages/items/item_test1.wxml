@@ -1,5 +1,14 @@
 <!--miniprogram/pages/items/item_test1.wxml-->
 <import src="/components/item-swiper/item-swiper.wxml" />
+<import src="/components/item-content/item-content.wxml" />
 <view class="container">
   <template is="swiperTemplate" data="{{itemInfo}}"/>
+  <template is="contentTemplate" data="{{itemInfo}}"/>
+  <!-- <van-tag plain>标签</van-tag> -->
+  <van-goods-action>
+    <van-goods-action-icon icon="chat" text="客服" bind:click="onClickIcon" />
+    <van-goods-action-icon icon="cart" text="购物车" bind:click="onClickIcon" />
+    <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickButton" />
+    <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+  </van-goods-action>
 </view>

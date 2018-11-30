@@ -1,8 +1,8 @@
-<!--components/item-swiper/item-swiper.wxml-->
+<!-- components/item-swiper/item-swiper.wxml -->
 <template name="swiperTemplate">
-  <view class="adInfos">
-    <swiper wx:if="{{itemInfo.image.length}}" autoplay="true" indicator-dots="true" >
-      <block wx:for="{{itemInfo.image}}" wx:for-item="ad" wx:key="ad._id">
+  <view class="itemImg">
+    <swiper autoplay="true" indicator-dots="true">
+      <block wx:for="{{itemInfo[0].image}}" wx:for-item="ad" wx:key="ad._id">
         <swiper-item>
           <image src="{{ad}}" data-id="{{ad._id}}" mode="aspectFill" />
         </swiper-item>

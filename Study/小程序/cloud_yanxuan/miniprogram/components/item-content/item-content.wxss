@@ -1,0 +1,73 @@
+/* components/item-content/item-content.wxss */
+.content {
+  width: 100%;
+  height: 300rpx;
+
+}
+
+.content-Info {
+  margin: 40rpx 30rpx 30rpx 30rpx;
+  font-size: 28rpx;
+}
+
+.contentInfoLeft {
+  display: inline-block;
+  width: 560rpx;
+  height: 90rpx;
+}
+.content-Info_title {
+  font-weight: bold;
+}
+
+.content-Info_desc {
+  margin-top: 10rpx;
+  color: #a4a4a4;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+}
+
+.contentInfoRight {
+  display: inline-block;
+  width: 120rpx;
+  height: 80rpx;
+  text-align: center;
+  border-left: 1rpx solid #ececec;
+}
+
+.contentInfoRight text {
+  font-size: 28rpx;
+  font-weight: bolder;
+  color: #BA252C;
+}
+
+.contentInfoRight view {
+  font-size: 24rpx;
+  color: #a4a4a4;
+}
+
+.content-priceInfo {
+  margin: 0 20rpx;
+  width: 100%;
+  height: 100rpx;
+}
+
+.content-priceInfo_priceNow {
+  width: 90rpx;
+  color: #ba252c;
+  font-weight: border;
+  font-size: 40rpx;
+  display: inline-block;
+}
+
+.content-priceInfo_price {
+  width: 360rpx;
+  text-decoration: line-through;
+  color: #a4a4a4;
+  font-size: 26rpx;
+  display: inline-block;
+}
+.content-priceInfo_integral {
+  color: #a4a4a4;
+  font-size: 26rpx;
+  display: inline-block;
+}

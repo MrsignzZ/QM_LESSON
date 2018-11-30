@@ -1,0 +1,21 @@
+<!-- components/item-content/item-content.wxml -->
+<template name="contentTemplate">
+  <view class="content">
+    <view class="content-Info">
+      <view class="contentInfoLeft">
+        <view class="content-Info_title">{{itemInfo[0].title}}</view>
+        <view class="content-Info_desc">{{itemInfo[0].desc}}</view>
+      </view>
+      <view class="contentInfoRight">
+        <text >99.8%</text>
+        <view >好评率</view>
+      </view>
+    </view>
+    <view class="content-priceInfo">
+      <view class="content-priceInfo_priceNow">{{itemInfo[0].priceNow}}</view>
+      <view class="content-priceInfo_price">{{itemInfo[0].price}}</view>
+      <view class="content-priceInfo_integral">购买最高获得1积分</view>
+    </view>
+    <van-tag plain size="large" color="#F7AC54">标签</van-tag>
+  </view>
+</template>

@@ -1,19 +1,19 @@
 /* components/item-swiper/item-swiper.wxss */
-.adInfos{
+.itemImg{
   width:100%;
-  height: 400rpx;
+  height: 750rpx;
   position: relative;
 }
-.adInfos swiper{
+.itemImg swiper{
   width: 100%;
   height: 100%;
   margin: 5rpx auto;
 }
-.adInfos swiper swiper-item {
-
+.itemImg swiper swiper-item {
+  background-color: #F4F4F4;
   box-sizing: border-box;
 }
-.adInfos swiper image{
+.itemImg swiper image{
   position: absolute;
   width: 100%;
   height: 100%;
