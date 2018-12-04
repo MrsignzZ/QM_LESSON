@@ -48,7 +48,7 @@
 .content-priceInfo {
   margin: 0 20rpx;
   width: 100%;
-  height: 100rpx;
+  height: 65rpx;
 }
 
 .content-priceInfo_priceNow {
@@ -70,4 +70,11 @@
   color: #a4a4a4;
   font-size: 26rpx;
   display: inline-block;
+}
+.content-tag {
+  margin: 0 20rpx;
+}
+
+.tag {
+  margin-right: 20rpx;
 }

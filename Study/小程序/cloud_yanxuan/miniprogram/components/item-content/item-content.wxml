@@ -16,6 +16,10 @@
       <view class="content-priceInfo_price">{{itemInfo[0].price}}</view>
       <view class="content-priceInfo_integral">购买最高获得1积分</view>
     </view>
-    <van-tag plain size="large" color="#F7AC54">标签</van-tag>
+    <view class="content-tag">
+      <van-tag class="tag" plain size="large" color="#F7AC54">新人专享价</van-tag>
+      <van-tag class="tag" plain size="large" color="#F7AC54">全场加价购</van-tag>
+    </view>
+
   </view>
 </template>
