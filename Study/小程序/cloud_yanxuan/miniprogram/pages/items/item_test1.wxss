@@ -4,3 +4,8 @@
 .container {
   height: 100%;
 }
+
+.step {
+  width: 100%;
+  height: 250rpx;
+}

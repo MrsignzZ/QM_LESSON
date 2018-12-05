@@ -5,10 +5,22 @@
   <template is="swiperTemplate" data="{{itemInfo}}"/>
   <template is="contentTemplate" data="{{itemInfo}}"/>
   <!-- <van-tag plain>标签</van-tag> -->
+  <view class="step">
+    <view class="step-item step-item_item1" bindtap="onTapItem">服务></view>
+  </view>
+    <van-action-sheet show="{{ show }}" title="服务"  bind:close="onClose"  bind:select="onSelect" >
+    <view class="service">
+      <ul>
+        <li>yixieneirong</li>
+        <li>sada</li>
+      </ul>
+    </view>
+  </van-action-sheet>
   <van-goods-action>
     <van-goods-action-icon icon="chat" text="客服" bind:click="onClickIcon" />
     <van-goods-action-icon icon="cart" text="购物车" bind:click="onClickIcon" />
     <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickButton" />
     <van-goods-action-button text="立即购买" bind:click="onClickButton" />
   </van-goods-action>
+
 </view>
