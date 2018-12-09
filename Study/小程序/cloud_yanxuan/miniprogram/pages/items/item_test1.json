@@ -2,6 +2,8 @@
   "component": true,
   "navigationBarTitleText": "商品详情",
   "usingComponents": {
+    "van-cell": "../../vant-weapp/cell/index",
+    "van-cell-group": "../../vant-weapp/cell-group/index",
     "van-tag": "../../vant-weapp/tag/index",
     "van-goods-action": "../../vant-weapp/goods-action/index",
     "van-goods-action-icon": "../../vant-weapp/goods-action-icon/index",

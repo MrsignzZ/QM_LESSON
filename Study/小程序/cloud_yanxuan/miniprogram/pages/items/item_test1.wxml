@@ -6,9 +6,17 @@
   <template is="contentTemplate" data="{{itemInfo}}"/>
   <!-- <van-tag plain>标签</van-tag> -->
   <view class="step">
-    <view class="step-item step-item_item1" bindtap="onTapItem">服务></view>
+    <van-cell title="数量规格选择:" is-link bind:click="onTapItemSpecifications"/>
+    <van-cell title="服务:" is-link bind:click="onTapItemService"/>
   </view>
-    <van-action-sheet show="{{ show }}" title="服务"  bind:close="onClose"  bind:select="onSelect" >
+  <van-action-sheet show="{{ showSpecifications }}"  bind:close="onCloseSpecifications" >
+    <view class="show-container">
+      <view class="show-info"></view>
+      <view class="show-specification"></view>
+      <view class="show-quantity"></view>
+    </view>
+  </van-action-sheet>
+  <van-action-sheet show="{{ showService }}" title="服务"  bind:close="onCloseService" >
     <view class="service">
       <ul>
         <li>yixieneirong</li>

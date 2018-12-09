@@ -7,7 +7,8 @@ Page({
    */
   data: {
     itemInfo: [],
-    show: false,
+    showSpecifications: false,
+    showService: false,
     actions: [
       {
         name: '选项'
@@ -26,13 +27,23 @@ Page({
       }
     ]
   },
-  onTapItem() {
+  onTapItemSpecifications() {
     this.setData({
-      show: true
-    })
+      showSpecifications: true
+    });
   },
-  onClose() {
-    this.setData({ show: false });
+  onTapItemService() {
+    this.setData({
+      showService: true
+    });
+  },
+  onCloseService() {
+    this.setData({ showService: false });
+  },
+  onCloseSpecifications() {
+    this.setData({
+      showSpecifications: false
+    })
   },
 
   onSelect(event) {

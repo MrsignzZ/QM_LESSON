@@ -1,11 +1,17 @@
 /* miniprogram/pages/items/item_test1.wxss */
 @import "../../components/item-swiper/item-swiper.wxss";
 @import "../../components/item-content/item-content.wxss";
+body {
+  background-color: #f4f4f4;
+}
 .container {
   height: 100%;
 }
 
 .step {
+  margin-top: 30rpx;
   width: 100%;
-  height: 250rpx;
+  height: 500rpx;
+  background-color: #f4f4f4;
 }
+
