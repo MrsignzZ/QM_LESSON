@@ -35,7 +35,9 @@ class Notes extends Component {
       <Note
         key={ entity.$loki }
         entity={ entity }
+        destroyEntity = { this.destroyEntity }
       />
+
     )
     return (
       <div className="ui container">
@@ -46,12 +48,44 @@ class Notes extends Component {
         <button className="ui right floated basic violet button" onClick={this.createEntity}>添加笔记</button>
         <div className="ui divided items">
           { noteItems }
+          { !entities.length &&
+            <span className="ui small disabled header">
+              还没有笔记，请按下"添加笔记"按钮
+            </span>
+          }
         </div>
       </div>
     )
   }
   createEntity = () => {
-    console.log(this)
+    // console.log(this)
+    loadCollection('notes')
+      .then((collection) => {
+        const entity = collection.insert({
+          body: ''
+        })
+        db.saveDatabase()
+        this.setState((prevState) => {
+          const _entities = prevState.entities
+          _entities.unshift(entity)
+          return {
+            entities: _entities
+          }
+        })
+      })
+  }
+  destroyEntity = (entity) => {
+    const _entities = this.state.entities.filter((_entity) => {
+      return _entity.$loki != entity.$loki
+    })
+    this.setState({
+      entities: _entities
+    })
+    loadCollection('notes')
+      .then(collection => {
+        collection.remove(entity)
+        db.saveDatabase()
+      })
   }
 }
 export default Notes
