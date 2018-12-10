@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>v-test & v-html</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+  </head>
+
+  <body>
+    <h1>v-text实例</h1>
+    <hr />
+    <div id="app">
+      <!-- v-test 对用户友好，在没有渲染script的时候不会有{{message}}显示在页面上 -->
+      <span>{{ message }}</span>=<span v-text="message"></span>
+      <span v-html="todo"></span>
+    </div>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'hello vue',
+          todo: '<h2>hello vue</h2>'
+        }
+      });
+    </script>
+  </body>
+</html>
