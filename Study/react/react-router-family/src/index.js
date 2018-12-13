@@ -1,75 +1,120 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-function BasicExample() {
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from 'react-router-dom';
+// 鉴权
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true;
+    setTimeout(cb, 1000);
+  },
+  signout(cb) {
+    this.isAuthenticated = false;
+    setTimeout(cb, 1000);
+  }
+};
+function AuthExample() {
   return (
     <Router>
       <div>
+        <AuthButton />
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/public">Public Page</Link>
           </li>
-        </ul>
-        <ul>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/protected">Protected Page</Link>
           </li>
         </ul>
-        <ul>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
-        <hr />
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} />
+        <Route path="/public" component={Public} />
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/protected" component={Protected} />
       </div>
     </Router>
   );
 }
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
+const AuthButton = withRouter(({ history }) => {
+  return fakeAuth.isAuthenticated ? (
+    <p>
+      Welcome!
+      <button
+        onClick={() => {
+          fakeAuth.signout(() => {
+            // Redirect?
+            // js  并非 jsx 输出
+            history.push('/');
+          });
+        }}
+      >
+        Sign out
+      </button>
+    </p>
+  ) : (
+    <p>You are not logged in.</p>
   );
+});
+
+function Public() {
+  return <div>Public</div>;
 }
-function About() {
+function PrivateRoute({ component: Component, ...rest }) {
   return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
-function Topic({ match }) {
-  return <div>{match.params.topicId}</div>;
-}
-function Topics({ match }) {
-  return (
-    <div>
-      <h2>Topics</h2>
-      <ul>
-        <li>
-          <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>Props State</Link>
-        </li>
-      </ul>
-      <Route path={`${match.url}/:topicId`} component={Topic} />
-      <Route
-        exact
-        path="{match.url}"
-        render={() => <h3>Please select a topic.</h3>}
-      />
-    </div>
+    <Route
+      {...rest}
+      render={props =>
+        fakeAuth.isAuthenticated ? (
+          <Component />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
   );
 }
 
-ReactDOM.render(<BasicExample />, document.getElementById('root'));
+function Protected() {
+  return <div>Protected</div>;
+}
+class Login extends React.Component {
+  state = {
+    redirectToReferrer: false
+  };
+  login = () => {
+    fakeAuth.authenticate(() => {
+      this.setState({
+        redirectToReferrer: true
+      });
+    });
+    // fakeAuth.isAuthenticated = true
+  };
+  render() {
+    let { from } = this.props.location.state || {
+      from: {
+        pathname: '/'
+      }
+    };
+    let redirectToReferrer = this.state.redirectToReferrer;
+    if (redirectToReferrer) return <Redirect to={from} />;
+
+    return (
+      <div>
+        <p>You must log in to view the page at {from.pathname}</p>
+        <button onClick={this.login}>Log in</button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<AuthExample />, document.getElementById('root'));
