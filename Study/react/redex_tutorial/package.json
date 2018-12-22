@@ -1,0 +1,15 @@
+{
+  "name": "redex_tutorial",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "MrsignzZ <1440806960@qq.com> (http://github.com/MrsignzZ)",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.0.1"
+  }
+}
