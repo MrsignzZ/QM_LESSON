@@ -21,4 +21,7 @@ context 跨组件传值 新的希望 react-redux基于它实现<br>
 
   全局的store太烦了，不是react 数据流的语法的烦 是contextAPI代码的重复 <br>
   dry don't repeat your self 生命周期 _setUp() contextTypes<br>
-  context react-redux HOC 
+  context react-redux HOC <br>
+
+- connect 封装， 有关的context的操作都交给他
+- 后代组件，只需要做自己的事

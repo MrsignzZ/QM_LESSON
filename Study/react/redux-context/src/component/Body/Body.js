@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
+import { connect } from "../../redux";
 
-export default class Body extends Component {
+class Body extends Component {
   // new Body() this.  public
   static contextTypes = {
     store: PropTypes.object,
@@ -25,9 +26,11 @@ export default class Body extends Component {
   render() {
     return (
       <div>
-        <div className="body">{this.state.body}</div>
+        <div className="body">{this.props.body}</div>
         <Button />
       </div>
     );
   }
 }
+
+export default connect(Body)
