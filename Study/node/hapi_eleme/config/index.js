@@ -1,6 +1,6 @@
-const env = process.env
-console.log(env)
-module.export = {
-  hots: env.HOST,
-  port: env.PORT
+const env = process.env;
+console.log(env);
+module.exports = {
+    host: env.HOST,
+    port: env.PORT
 }

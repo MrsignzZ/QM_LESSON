@@ -1,17 +1,23 @@
 {
-  "dependencies": {
-    "env2": "^2.2.2",
-    "hapi": "16"
-  },
   "name": "hapi_eleme",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "MrsignzZ <1440806960@qq.com> (http://github.com/MrsignzZ)",
-  "license": "MIT",
-  "description": ""
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "hapi": "16",
+    "hapi-swagger": "7",
+    "inert": "4",
+    "mysql2": "^1.6.4",
+    "package": "^1.0.1",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
+    "vision": "4"
+  }
 }
