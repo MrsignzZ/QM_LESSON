@@ -79,3 +79,38 @@
 
   - 计算特殊性值
   1. important > 内嵌 > ID > 类 > 标签 | 伪类 | 属性选择 > 伪对象 > 继承 > 通配符
+
+-  <font color="#DDA24A">**null和undefined的区别**</font>
+
+  1. null是一个空的对象，而undefined是一个全局变量的特殊属性。同时，null是JavaScript的保留关键字，而undefined却不是。
+  2. 进行数值运算时，null返回值是0，而undefined是NaN。
+  3. null==undefined，但是null！===undefined。我是这样理解的:null和undefined都是没有实际的值的，所以null==undefined，而本质上，null是空的对象，undefined是未定义的一个全局属性，所以null！===undefined。
+
+-  <font color="#DDA24A">**new操作符具体干了什么**</font>
+  1. 创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型
+2. 属性和方法被加入到 this 引用的对象中
+3. 新创建的对象由 this 所引用，并且最后隐式的返回 this
+```
+    var obj  = {};
+    obj.__proto__ = Base.prototype;
+    Base.call(obj);
+```
+
+-  <font color="#DDA24A">**documen.write和 innerHTML 的区别**</font>
+  1. document.write 只能重绘整个页面
+  2. innerHTML 可以重绘页面的一部分
+
+-  <font color="#DDA24A">**性能优化的方法**</font>
+  1. 减少http请求次数：CSS Sprites, JS、CSS 源码压缩、图片大小控制合适；网页 Gzip，CDN 托管，data 缓存 ，图片服务器
+  2. 前端模板 JS + 数据，减少由于HTML标签导致的带宽浪费，前端用变量保存 AJAX 请求结果，每次操作本地变量，不用请求，减少请求次数
+  3. 用 innerHTML 代替 DOM 操作，减少 DOM 操作次数，优化 javascript 性能
+  4. 当需要设置的样式很多时设置 className 而不是直接操作 style
+  5. 少用全局变量、缓存DOM节点查找的结果。减少 IO 读取操作
+  6. 避免使用 CSS Expression（css表达式)又称 Dynamic properties(动态属性)
+  7. 图片预加载，将样式表放在顶部，将脚本放在底部，加上时间戳
+
+-  <font color="#DDA24A">**一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么**</font>
+  1. 当发送一个 URL 请求时，不管这个 URL 是 Web 页面的 URL 还是 Web 页面上每个资源的 URL，浏览器都会开启一个线程来处理这个请求，同时在远程 DNS 服务器上启动一个 DNS 查询。这能使浏览器获得请求对应的 IP 地址。
+  2. 浏览器与远程 Web 服务器通过 TCP 三次握手协商来建立一个 TCP/IP 连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
+  3. 一旦 TCP/IP 连接建立，浏览器会通过该连接向远程服务器发送 HTTP 的 GET 请求。远程服务器找到资源并使用 HTTP 响应返回该资源，值为 200 的 HTTP 响应状态表示一个正确的响应。
+  4. 此时，Web 服务器提供资源服务，客户端开始下载资源。
