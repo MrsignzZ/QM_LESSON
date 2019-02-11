@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS盒模型</title>
+  <style>
+    html *{
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <section id="sec">
+    <style>
+      #sec{
+        background-color: #f00;
+      }
+      .child{
+        height: 100px;
+        margin-top: 10px;
+        background-color: yellow;
+      }
+    </style>
+    <article class="child"></article>
+  </section>
+
+  <!-- BFC垂直方向边距重叠 -->
+  <section id="margin">
+    <style>
+      #margin{
+        background-color: pink;
+        overflow: hidden;
+        margin-top: 50px;
+      }
+      #margin>p{
+        margin: 5px auto 25px;
+        background-color: red;
+      }
+    </style>
+    <p>1</p>
+    <div style="overflow:hidden">
+      <p style="background:red;">2</p>
+    </div>
+    <p>3</p>
+  </section>
+
+  <!-- 自适应两栏布局 -->
+  <section id="layout">
+    <style>
+      #layout{
+        background-color: red;
+        margin-top: 50px;
+      }
+      #layout .left{
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+      #layout .right{
+        overflow: auto;
+        height: 110px;
+        background-color: #ccc;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="right"></div>
+  </section>
+
+  <!-- BFC子元素即使是float也会参与计算 -->
+  <section id="float">
+    <style>
+      #float{
+        margin-top: 50px;
+        background-color: red;
+        overflow: auto;
+      }
+      #float .float{
+        float: left;
+        font-size: 30px;
+      }
+    </style>
+    <div class="float">我是浮动元素</div>
+  </section>
+</body>
+</html>
