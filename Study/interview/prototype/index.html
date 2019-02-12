@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>prototype</title>
+</head>
+<body>
+  <script>
+  // 第一种方式 自变量
+  var o1 = {name:'o1'}
+  var o2 = new Object({name:'o2'})
+  // 第二种方式 通过构造函数
+  var M = function (name) {
+    this.name = name
+  }
+  var o3 = new M('o3')
+  // 第三种方式 Object.create
+  var p = { name: 'p' }
+  var o4 = Object.create(p)
+
+  M.prototype.say = function () {
+    console.log('say hi')
+  }
+  var o5 = new M('05')
+
+  var new2 = function (func) {
+    var o = Object.create(func.prototype) //  创建一个新对象，继承构造函数的原型对象
+    var k = func.call(o)                  // 执行构造函数 call()用于转移上下文到新对象o上
+    if (typeof k === 'object') {          // 判断构造函数执行的结果是不是对象类型
+      return k                            // 是，返回执行对象
+    } else{
+      return o                            // 不是，返回原对象
+    }
+  }
+  </script>
+</body>
+</html>
