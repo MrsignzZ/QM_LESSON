@@ -10,5 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "MrsignzZ <1440806960@qq.com> (http://github.com/MrsignzZ)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vuex": "^3.1.0"
+  }
 }
