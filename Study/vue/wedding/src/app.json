@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/greet/main",
     "pages/index/main",
     "pages/photo/main",
     "pages/map/main",
-    "pages/greet/main",
     "pages/message/main"
   ],
   "window": {
