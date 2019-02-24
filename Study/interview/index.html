@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .app {
+      background-color: yellow;
+      width: 300px;
+      overflow: auto;
+      margin-bottom: 50px;
+    }
+    .app2{
+      overflow: hidden;
+    }
+    .child{
+      margin: 50px 50px 0 0;
+      float: left;
+      width: 300px;
+      height: 100px;
+      background: #f4f4f4;
+    }
+    /* .app::after{
+      content:'.';
+      display:block;
+      height:0;
+      clear:both;
+      visibility: hidden;
+      zoom: 1;
+    } */
+
+    .one {
+      /* position: fixed; */
+      float: left;
+      width: 80px;
+      height: 80px;
+      /* display: table-cell; */
+      background-color: red;
+    }
+
+    .two{
+      float: right;
+      width: 80px;
+      height: 80px;
+      border-bottom: 40px solid;
+      border-top: 40px solid transparent;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      box-sizing: border-box;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="one"></div>
+    <div class="two"></div>
+  </div>
+  <div class="app2">
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
+  <p>faslbgflibadsli</p>
+</body>
+
+</html>
