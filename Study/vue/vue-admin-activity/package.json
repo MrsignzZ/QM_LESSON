@@ -1,0 +1,21 @@
+{
+  "name": "vue-admin-activity",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "element-ui": "^2.5.4",
+    "lodash": "^4.17.11",
+    "vue": "^2.6.6",
+    "vue-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
