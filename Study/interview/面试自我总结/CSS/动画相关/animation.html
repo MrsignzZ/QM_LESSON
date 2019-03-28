@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .box{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: red;
+  }
+  .box:hover{
+    /* -webkit-animation-name: hover;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: infinite; */
+    animation: hover 1s ease-in infinite;
+  }
+  @-webkit-keyframes hover{
+    0%{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    50%{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+    100%{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+  }
+</style>
+<body>
+  <div class="box"></div>
+</body>
+</html>

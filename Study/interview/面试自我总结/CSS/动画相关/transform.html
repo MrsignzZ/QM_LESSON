@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .transform{
+    width: 1000px;
+    background-color: #fdfdfd;
+    margin: 50px auto;
+  }
+  .transform::after{
+    clear: both;
+    content: '';
+    display: block;
+    overflow: hidden;
+  }
+  .transform > section{
+    width: 230px;
+    float: left;
+    border: 1px #999 solid;
+    margin-right: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .transform > section strong{
+    display: block;
+    background-color: #eee;
+    line-height: 28px;
+    font-size: 20px;
+    font-family: serif;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .transform > section span{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    bottom: 1px #ccc solid;
+    background-color: #09f;
+  }
+  .transform.origin > section span{
+    background-color: #0c0;
+    -webkit-transform-origin: 0 -40px;
+  }
+  .transform > section .rotate{
+    transform: rotate(20deg);
+  }
+  .transform > section .translate{
+    transform: translate(20px, 20px)
+  }
+  .transform > section .scale{
+    transform: scale(0.5)
+  }
+  .transform  > section .skew{
+    transform: skew(20deg, -30deg)
+  }
+</style>
+<body>
+  <div class="transform">
+    <section>
+      <strong>旋转</strong>
+      <span class="rotate"></span>
+    </section>
+    <section>
+      <strong>移动</strong>
+      <span class="translate"></span>
+    </section>
+    <section>
+      <strong>缩放</strong>
+      <span class="scale"></span>
+    </section>
+    <section>
+      <strong>扭曲</strong>
+      <span class="skew"></span>
+    </section>
+  </div>
+
+  <div class="transform origin">
+    <section>
+      <strong>旋转</strong>
+      <span class="rotate"></span>
+    </section>
+    <section>
+      <strong>移动</strong>
+      <span class="translate"></span>
+    </section>
+    <section>
+      <strong>缩放</strong>
+      <span class="scale"></span>
+    </section>
+    <section>
+      <strong>扭曲</strong>
+      <span class="skew"></span>
+    </section>
+  </div>
+</body>
+</html>
