@@ -13,6 +13,10 @@
   "author": "MrsignzZ <1440806960@qq.com> (http://github.com/MrsignzZ)",
   "license": "MIT",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "antd": "^3.19.6",
+    "babel-plugin-import": "^1.12.0",
+    "ioredis": "^4.10.0",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
     "next": "^8.1.0",
