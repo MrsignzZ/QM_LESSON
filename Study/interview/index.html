@@ -6,7 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
   </head>
+  <style>
+  body{
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+  }
+  .container .common{
+    font-size: 30px;
+    text-align: center;
+    background-color: #7ecef3;
+    color: #fff;
+  }
+  .container .content{
+    width: 100%;
+    display: table;
+    font-size: 30px;
+    text-align: center;
+  }
+  .container .content>div{
+    display: table-cell;
+  }
+  .container .content .left{
+    width: 200px;
+    height: 100px;
+    background-color: #89c997;
+  }
+  .container .content .center{
+    height: 120px;
+    background-color: #53b9be;
+  }
+  .container .content .right{
+    width: 200px;
+    height: 140px;
+    background-color: #89c997;
+  }
+  </style>
   <body>
-    
+    <div class="container">
+      <header class="common">header</header>
+      <div class="content">
+        <div class="left">Left Bar</div>
+        <div class="center">Content</div>
+        <div class="right">Right Bar</div>
+      </div>
+      <footer class="common">footer</footer>
+    </div>
   </body>
 </html>
