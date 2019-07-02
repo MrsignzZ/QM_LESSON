@@ -1,9 +1,33 @@
-import { withRouter } from "next/router";
-import Link from "next/link";
+import { withRouter } from "next/router"
+import Head from 'next/head'
+import Link from "next/link"
+import styled from "styled-components";
 import Comp from '../components/comp'
 
+const Title = styled.h1`
+  color: yellow;
+  font-size: 40px;
+`
+
 const A = ({ router, name }) => <Link href="#aaa">
-  <a>A{router.query.id} {name}</a>
+  <>
+    <Title>This is title</Title>
+    <Link href="#aaa">
+      <a className="link">
+        A {router.query.id} {name}
+      </a>
+    </Link>
+    <style jsx>
+      {`
+        a {
+          color: red;
+        }
+        .link {
+          color: green;
+        }
+      `}
+    </style>
+  </>
 </Link>
 
 A.getInitialProps = async () => {

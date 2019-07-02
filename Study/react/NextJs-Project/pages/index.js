@@ -32,6 +32,7 @@ export default () => {
   return (
     <>
       <span>Index</span>
+      <a href="">index a</a>
     </>
   )
 }

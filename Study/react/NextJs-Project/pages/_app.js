@@ -4,11 +4,11 @@ import Layout from '../components/layout'
 
 class MyApp extends App {
 
-  static async getInitialProps({ Component }) {
+  static async getInitialProps({ Component, ctx }) {
     console.log('app init')
-    let pageProps
+    let pageProps = {}
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps()
+      pageProps = await Component.getInitialProps(ctx)
     }
     return {
       pageProps

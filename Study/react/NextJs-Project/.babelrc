@@ -7,6 +7,12 @@
         "libraryName": "antd",
         "style": "css"
       }
+    ],
+    [
+      "styled-components",
+      {
+        "ssr": true
+      }
     ]
   ]
 }
