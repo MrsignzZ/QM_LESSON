@@ -34,7 +34,6 @@ function MyCountFunc() {
     return () => {
       console.log('effect deteched');
       console.log(inputRef);
-      
     };
   }, [count])
 
