@@ -3,6 +3,8 @@ import 'antd/dist/antd.css'
 import Layout from '../components/layout'
 
 import MyContext from '../lib/my-context'
+
+import testHoc from '../lib/test-hoc'
 class MyApp extends App {
 
   state ={
@@ -36,4 +38,4 @@ class MyApp extends App {
     )
   }
 }
-export default MyApp
+export default testHoc(MyApp)
