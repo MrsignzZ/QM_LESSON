@@ -101,7 +101,7 @@ function isInCity(p, poly) {
     py = p.y,
     res = false;
 
-  for (let i = 0,  j = poly.length - 1; i < j; i++) {
+  for (let i = 0, j = poly.length - 1; i < j; i++) {
     let sx = poly[i].x,
       sy = poly[i].y,
       tx = poly[j].x,
@@ -154,7 +154,7 @@ let m = new Map()
 
 for (let i = 0; i < arr.length; i++) {
   const element = arr[i];
-  if(!m.has(element)) {
+  if (!m.has(element)) {
     m.set(element, 1)
   } else {
     m.set(element, m.get(element) + 1);
@@ -201,9 +201,9 @@ console.log(JSON.stringify(transObj(orignalObj)));
 
 
 
-const numArr1 = [100,22,23]
-const numArr2 = [11,34,40, 22]
-console.log(numArr1.concat(numArr2).sort((a, b) => a-b))
+const numArr1 = [100, 22, 23]
+const numArr2 = [11, 34, 40, 22]
+console.log(numArr1.concat(numArr2).sort((a, b) => a - b))
 
 
 
@@ -250,7 +250,7 @@ if (line.length <= 3) {
 else if (line.length <= 6) {
   // if (lines[3] >= 5) {
   //   if (condition) {
-      
+
   //   }
   //   lines[2] = parseInt(lines[2]) + 1
   // }
@@ -267,7 +267,7 @@ else if (line.length <= 6) {
   res.pop()
   console.log(res)
   res = deleteZero(res);
-  
+
   console.log(res)
 }
 else if (line.length <= 9) {
@@ -295,7 +295,7 @@ else {
   } else console.log(`${lines[0]}.${lines[1]}${lines[2]} Kbps`)
 }
 
-let arr = [1, 4, 5, 2, 9 ,10 ,7]
+let arr = [1, 4, 5, 2, 9, 10, 7]
 
 let max1 = 0, max2 = 0;
 arr.reduce((a, b) => {
@@ -346,3 +346,217 @@ Student.prototype.constructor = Student
 var s1 = new Student('xiaomi', 18)
 
 console.log(s1)
+
+function deepClone(obj) {
+  if (typeof obj !== 'object' && typeof obj !== 'function') {
+    return obj;
+  }
+
+  let o = Object.prototype.toString.call(obj) === '[object Array]' ? [] : {}
+
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      o[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]
+    }
+  }
+  return o;
+}
+
+function flatten(arr) {
+  return arr.reduce((pre, item) => {
+    return pre.concat(Array.isArray(item) ? flatten(item) : item)
+  }, [])
+}
+console.log(flatten([1, [[2], [3, [4]], 5]]))
+
+let str = '34839946-beijing 34839946-shanghai 42342124-hongkong 42342124-guilin 42342124-guilin 12312344-shanghai 12312344-shanghai 22341234-nanjing';
+
+let arr = [...new Set(str.split(' '))]
+
+arr = arr.map((item, index) => {
+  return item.split('-')[1];
+})
+
+let m = new Map()
+
+for (let i = 0; i < arr.length; i++) {
+  const element = arr[i];
+  if (!m.has(element)) {
+    m.set(element, 1)
+  } else {
+    m.set(element, m.get(element) + 1);
+  }
+}
+
+let res = [...m.keys()].sort()
+let s = res.map((item, index) => {
+  return [item, m.get(item)]
+})
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j][1] < arr[j + 1][1]) {
+        [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]]
+      }
+    }
+  }
+  return arr
+}
+s = bubbleSort(s)
+
+console.log(`${s[0][0]} ${s[0][1]}`)
+console.log(`${s[1][0]} ${s[1][1]}`)
+console.log(`${s[2][0]} ${s[2][1]}`)
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let res = []
+function PostWithPre(pre, beg, end) {
+  let length = end - beg;
+  if (length >= 1) {
+    res.push(pre[beg])
+    beg = (length / 2 + 1) + beg
+    PostWithPre(pre, beg, end)
+    beg = beg - (length / 2)
+    end = end - (length / 2)
+    PostWithPre(pre, beg, end)
+  }
+  else res.push(pre[beg])
+  return res
+}
+console.log(PostWithPre(arr, 0, 9))
+
+var add = currying(function () {
+  var sum = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum;
+});
+
+function currying(fn) {
+  let allArgs = []
+  return function next() {
+    let args = [...arguments]
+    if (args.length > 0) {
+      allArgs = allArgs.concat(args)
+      return next
+    } else {
+      return fn.apply(null, [...allArgs])
+    }
+  }
+}
+console.log(add(1)(2)(3)())
+
+
+function currying(fn) {
+  var allArgs = [];
+
+  function next() {
+    var args = [].slice.call(arguments);
+    allArgs = allArgs.concat(args);
+    return next;
+  }
+  // 字符类型
+  next.toString = function () {
+    return fn.apply(null, allArgs);
+  };
+  // 数值类型
+  next.valueOf = function () {
+    return fn.apply(null, allArgs);
+  }
+
+  return next;
+}
+
+console.log(add(1)(2)(3))
+
+function palindrome(s) {
+  if (s.length === 1) {
+    return s
+  }
+  let str = '#' + s.split('').join('#') + '#'
+  let rl = [], mx = 0, pos = 0, ml = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (i < mx) {
+      rl[i] = Math.min(rl[2 * pos - i], mx - i)
+    }
+    else {
+      rl[i] = 1
+    }
+    while (i - rl[i] > 0 && i + rl[i] < str.length && str[i - rl[i]] === str[i + rl[i]]) {
+      rl[i]++
+    }
+    if (rl[i] + i - 1 > mx) {
+      mx = rl[i] + i - 1
+      pos = i
+    }
+    if (ml < rl[i]) {
+      ml = rl[i]
+      sub = str.substring(i - rl[i] + 1, i + rl[i])
+    }
+  }
+  return sub.split('#').join('').trim()
+}
+
+console.log(palindrome('cdcde'))
+
+
+function isTrue(num) {
+  let sum = 0
+  for (let i = 1; i <= num; i++) {
+    if (num % i == 0) {
+      sum += i
+    }
+  }
+  if (sum == num + 1) {
+    return false
+  } else {
+    return true
+  }
+}
+
+
+
+console.log(isTrue(32))
+
+function test() {
+  let allRes = []
+  Promise.all(fetch(url1), fetch(url2), fetch(url3))
+    .then(res => allRes = res)
+  return { ...allRes }
+}
+
+
+
+
+function getAward() {
+  let n = Math.floor(Math.random() * 10)
+  if (n >= 0 && n <= 3) {
+    return '一等奖'
+  }
+  if (n <= 4) {
+    return '二等奖'
+  }
+  if (n <= 6) {
+    return '三等奖'
+  }
+  if (n <= 9) {
+    return '四等奖'
+  }
+}
+getAward()
+
+
+let line = 'font-size'
+let arr = line.split('-').filter(f =>f)
+arr = arr.map((item, index) => {
+  if (index === 0) {
+    return item
+  } else {
+    let resArr = item.split('')
+    console.log(resArr)
+    resArr[0] = resArr[0].toLocaleUpperCase()
+    return resArr.join('')
+  }
+})
+console.log(arr.join(''))
