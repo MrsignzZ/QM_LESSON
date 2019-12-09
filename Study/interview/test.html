@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,38 @@
   <title>Document</title>
 </head>
 <style>
-  #rotate {
-    width: 100px;
-    background-color: red;
+  body {
+    background-color: blue;
+  }
+
+  .space a {
+
+    display: inline-block;
+
+    padding: .5em 1em;
+
+    background-color: #cad5eb;
+
   }
 </style>
 
 <body>
-  <div id="rotate">
+  <div class="space">
+
+    <a href=" ">今日头条</a><a href="##">抖音</a><a href="##">懂车帝</a>
+
   </div>
-  <button>stop</button>
 </body>
+<script>
+  document.body.style.background = 'red'
+  let now = new Date().getTime()
+  console.log(now)
+  while (new Date().getTime() - 2000 < now) {
+    console.log('1')
+  }
+  console.log(new Date().getTime())
+
+  document.body.style.background = 'yellow'
+</script>
+
 </html>

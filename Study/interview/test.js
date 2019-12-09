@@ -547,16 +547,260 @@ function getAward() {
 getAward()
 
 
-let line = 'font-size'
-let arr = line.split('-').filter(f =>f)
+let line = 'a_b_cc_ddd'
+let arr = line.split('_').filter(f => f)
 arr = arr.map((item, index) => {
-  if (index === 0) {
-    return item
-  } else {
-    let resArr = item.split('')
-    console.log(resArr)
-    resArr[0] = resArr[0].toLocaleUpperCase()
-    return resArr.join('')
-  }
+  // if (index === 0) {
+  //   return item
+  // } else {
+  let resArr = item.split('')
+  console.log(resArr)
+  resArr[0] = resArr[0].toLocaleUpperCase()
+  return resArr.join('')
+  // }
 })
 console.log(arr.join(''))
+
+class Queue {
+  constructor() {
+    this.queue = []
+  }
+  task(wait, fn) {
+    this.queue.push({
+      wait: wait,
+      func: fn
+    })
+    return this
+  }
+  async start() {
+    for (let i = 0; i < this.queue.length; i++) {
+      await timeout(this.queue[i].wait)
+      this.queue[i].func()
+    }
+  }
+}
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+let p = new Queue();
+p.task(1000, () => {
+  console.log('第一')
+})
+  .task(2000, () => {
+    console.log('第二')
+  })
+  .task(1000, () => {
+    console.log('第三')
+  })
+  .start()
+
+function PrintMinNumber(numbers) {
+  // write code here
+  numbers.sort((a, b) => {
+    let str1 = a + '' + b;
+    let str2 = b + '' + a;
+    return str1 < str2 ? -1 : 1
+  })
+  console.log(numbers)
+  let res = ''
+  for (let i = 0; i < numbers.length; i++) {
+    res += numbers[i]
+  }
+  console.log(res)
+  return res
+}
+
+PrintMinNumber([3, 5, 1, 4, 2])
+
+function FindContinuousSequence(sum) {
+  // write code here
+  let res = [], pre = 1, next = 2;
+  while (pre < next) {
+    let cur = (pre + next) * (next - pre + 1) / 2
+    if (cur === sum) {
+      let list = []
+      for (let i = pre, i <= next; i++) {
+        list.push(i)
+      }
+      res.push(list)
+      next++
+    } else if (cur < sum) {
+      next++
+    } else {
+      pre++
+    }
+  }
+  return res
+}
+FindContinuousSequence
+
+function myPromise(fn) {
+  const that = this
+  this.value = null
+  this.state = 'PENDING'
+
+  that.resolveCallbacks = []
+  that.rejectCallbacks = []
+
+  function resolve(value) {
+    if (that.state === 'PENDING') {
+      that.value = value
+      that.state = 'RESOLVED'
+      that.resolveCallbacks.map((cb) => cb(that.value))
+    }
+  }
+
+  function reject(value) {
+    if (that.state === 'PENDING') {
+      that.state = 'REJECTED'
+      that.value = value
+      that.rejectedCallbacks.map(cb => cb(that.value))
+    }
+  }
+  try {
+    fn(resolve, reject)
+  } catch (e) {
+    reject(e)
+  }
+}
+
+
+const pro = new Promise((resolve, reject) => {
+  const innerpro = new Promise((resolve, reject) => {
+    // setTimeout(() => {
+    resolve(1);
+    console.log(2);
+    resolve(3);
+  });
+  innerpro.then(res => console.log(res));
+  resolve(4);
+  console.log("pro");
+})
+pro.then(res => console.log(res));
+console.log("end");
+
+let line = '12000000'
+let flag = ''
+let arr = line.split('')
+if (arr[0] === '-') {
+  flag = '[负]'
+  arr.shift()
+}
+function returnCNStr(arr) {
+  let resStr = arr.map((item, index) => {
+    item = returnCNNumber(item)
+    index = arr.length - index - 1
+    if(index === 0) return item
+      switch (index % 4) {
+        case 0:  item += index % 8 === 0 ? '亿' : '万'
+        case 1:  item += '拾'
+        case 2:  item += '佰'
+        case 3:  item += '仟'
+        default:
+          break;
+      }
+    return item
+  })
+  resStr = resStr.map((item, index) => {
+    let arr = item.split('')
+    if(arr[0] === '零'){
+      console.log('为零')
+      arr.shift()
+      if (arr[0] == '万' || arr[0] == '亿') {
+        arr.shift()
+      }
+    }
+    console.log(arr)
+    return arr.join('')
+  })
+  return flag + resStr.join('') + '圆'
+}
+
+function returnCNNumber(str) {
+  switch (str) {
+    case '0': return '零'
+    case '1': return '壹'
+    case '2': return '贰'
+    case '3': return '叁'
+    case '4': return '肆'
+    case '5': return '伍'
+    case '6': return '陆'
+    case '7': return '柒'
+    case '8': return '捌'
+    case '9': return '玖'
+
+    default:
+      break;
+  }
+}
+console.log(returnCNStr(arr))
+
+var fn = (() => {
+  var value = 0
+  return () => {
+    return ++value
+  }
+})()
+
+
+console.log(fn())
+console.log(fn())
+
+
+
+function find(startDate, endDate) {
+  let start = startDate.split('-');
+  let end = endDate.split('-');
+  let res = []
+  start = start.map(item => parseInt(item));
+  end = end.map(item => parseInt(item))
+  if (start[0] > end[0]) {
+    return res
+  }
+  if (start[0] === end[0]) {
+    let s = start[1], e = end[1]
+    while (s <= e) {
+      res.push(`${start[0]}-${s}`)
+      s++
+    }
+  }
+  else if (start[0] < end[0]) {
+    let startYear = start[0], endYear = end[0]
+    while(startYear < endYear){
+      let s = start[1], e = end[1]
+      while (s <= e) {
+        res.push(`${startYear}-${s}`)
+        s++
+      }
+      startYear++
+    }
+  }
+  return res
+}
+
+console.log(find('2015-5-5', '2016-7-7'))
+
+function fn(arr) {
+  let len = arr[0]
+  let newArr = []
+  for(let i = 0; i < len - 1 ; i++){
+    newArr[i][len - 1 - i] = Arr[0][i]
+  }
+  for (let i = 0; i < len - 1; i++) {
+    newArr[len - 1][len - 1 - i] = Arr[i][len - 1]
+  }
+  for (let i = len - 1; i > 0; i--) {
+    newArr[len - 1][len - 1 - i] = Arr[i][len - 1]
+  }
+}
+
+function dp_opt(arr) {
+  let opt = new Array(arr.length)
+  opt[0] = arr[0]
+  opt[1] = Math.max(arr[0], arr[1])
+  for (let i = 2; i < opt.length; i++) {
+    opt[i] = Math.max(opt[i - 2] + arr[i], opt[i - 1])
+  }
+  return opt[opt.length - 1]
+}
+console.log(dp_opt([4, 1, 1, 9 ,3]))
