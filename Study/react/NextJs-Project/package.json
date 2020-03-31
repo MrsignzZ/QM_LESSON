@@ -21,7 +21,7 @@
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
     "koa-session": "^5.12.2",
-    "next": "^8.1.0",
+    "next": "^9.3.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
